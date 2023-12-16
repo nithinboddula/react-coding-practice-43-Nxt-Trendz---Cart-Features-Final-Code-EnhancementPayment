@@ -15,19 +15,15 @@ const CartItem = props => (
       } = value
       const {cartItemDetails} = props
       const {id, title, brand, quantity, price, imageUrl} = cartItemDetails
+      const onClickDecrement = () => {
+        decrementCartItemQuantity(id)
+      }
+      const onClickIncrement = () => {
+        incrementCartItemQuantity(id)
+      }
       const onRemoveCartItem = () => {
         removeCartItem(id)
       }
-      // TODO: Update the functionality to increment and decrement quantity of the cart item
-
-      const onClickPlusBtn = () => {
-        incrementCartItemQuantity(id)
-      }
-
-      const onClickMinusBtn = () => {
-        decrementCartItemQuantity(id)
-      }
-
       const totalPrice = price * quantity
 
       return (
@@ -42,8 +38,8 @@ const CartItem = props => (
               <button
                 type="button"
                 className="quantity-controller-button"
-                onClick={onClickMinusBtn}
                 data-testid="minus"
+                onClick={onClickDecrement}
               >
                 <BsDashSquare color="#52606D" size={12} />
               </button>
@@ -51,8 +47,8 @@ const CartItem = props => (
               <button
                 type="button"
                 className="quantity-controller-button"
-                onClick={onClickPlusBtn}
                 data-testid="plus"
+                onClick={onClickIncrement}
               >
                 <BsPlusSquare color="#52606D" size={12} />
               </button>
@@ -63,7 +59,6 @@ const CartItem = props => (
                 className="remove-button"
                 type="button"
                 onClick={onRemoveCartItem}
-                data-testid="remove"
               >
                 Remove
               </button>
@@ -73,6 +68,7 @@ const CartItem = props => (
             className="delete-button"
             type="button"
             onClick={onRemoveCartItem}
+            data-testid="remove"
           >
             <AiFillCloseCircle color="#616E7C" size={20} />
           </button>

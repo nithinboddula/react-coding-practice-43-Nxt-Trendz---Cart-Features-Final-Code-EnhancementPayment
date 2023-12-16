@@ -38,3 +38,22 @@
 }
 
 /* Write your CSS here */
+.remove-all-btn {
+  display: flex;
+  align-self: flex-end;
+  color: #0b69ff;
+  background: transparent;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .remove-all-btn {
+    font-size: 16px;
+  }
+}
